@@ -1,8 +1,9 @@
-import ky from "ky";
-import { env } from "../../config/env";
+import ky from 'ky'
+import { env } from '@/config/env'
 
-export const apiClient = ky.create({
-  baseUrl: typeof window !== 'undefined'
+const baseUrl =
+  typeof window !== 'undefined' && env.apiBaseUrl.startsWith('/')
     ? `${window.location.origin}${env.apiBaseUrl}`
-    : env.apiBaseUrl,
-})
+    : env.apiBaseUrl
+
+export const apiClient = ky.create({ baseUrl })
