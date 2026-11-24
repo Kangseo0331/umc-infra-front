@@ -1,5 +1,5 @@
 import ky from 'ky'
-import { env } from '@/config/env'
+import { env } from '../../config/env'
 
 const baseUrl =
   typeof window !== 'undefined' && env.apiBaseUrl.startsWith('/')
